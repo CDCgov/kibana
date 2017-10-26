@@ -1,0 +1,30 @@
+#######################
+# The following is from the official kibana.yml file
+#######################
+
+server.name: kibana
+server.host: "0"
+xpack.monitoring.ui.container.elasticsearch.enabled: false
+
+#######################
+# The following is modified from the official kibana.yml file
+# The following placeholders are replaced via environment variables
+#   __ELASTICSEARCH_URL__
+#   __ELASTICSEARCH_USERNAME__
+#   __ELASTICSEARCH_PASSWORD__
+#######################
+
+elasticsearch.url: __ELASTICSEARCH_URL__
+elasticsearch.username: __ELASTICSEARCH_USERNAME__
+elasticsearch.password: __ELASTICSEARCH_PASSWORD__
+
+
+#######################
+# The following are custom settings that are useful in an OpenShift environment
+#######################
+
+# For development environments that need to work with a simple and
+#   basic elastic search capability
+#   - REMOVE THESE SETTINGS FOR PRODUCTION
+#   - See the README for more details
+xpack.security.enabled: false
