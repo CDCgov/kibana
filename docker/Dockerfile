@@ -4,6 +4,7 @@ MAINTAINER Tim Taylor <ttaylor@mitre.org>
 
 # kibana image for OpenShift 3 with the following properties:
 #   	- runs under the restricted (default) Security Context Constraints
+#       - Note that this image overrides the base image's CMD directive with custom ENTRYPOINT
 #   	- runs without XPACK (kibana should not use XPACK if the ElasticSearch instance does not use it)
 #
 # base image specified at https://github.com/elastic/kibana-docker/blob/master/templates/Dockerfile.j2
@@ -13,9 +14,7 @@ USER 0
 
 ENV KIBANA_HOME=/usr/share/kibana \
     KIBANA_CONFIG=/usr/share/kibana/config \
-    KIBANA_VER=5.6.2 \
-    OCP_DEBUG_CONTAINER=2 \
-    ELASTICSEARCH_URL=http://ocp-elasticsearch.myproject.svc:9200
+    KIBANA_VER=5.6.2
 
 WORKDIR ${KIBANA_HOME}
 
