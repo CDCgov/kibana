@@ -1,0 +1,30 @@
+#######################
+# The following is from the official kibana.yml file
+#######################
+server.name: kibana
+server.host: "0"
+
+
+#######################
+# The following is modified from the official kibana.yml file
+#######################
+xpack.monitoring.ui.container.elasticsearch.enabled: false
+
+
+#######################
+# The following is modified from the official kibana.yml file
+# The following placeholders are replaced via environment variables
+#   __ELASTICSEARCH_URL__
+#######################
+elasticsearch.url: __ELASTICSEARCH_URL__
+
+
+#######################
+# Disable XPACK due to licensing
+#######################
+# For environments that need to work with a simple and
+#   basic elastic search capability
+#   - REMOVE THESE SETTINGS FOR PRODUCTION
+#   - See the README for more details
+xpack.monitoring.enabled: false
+xpack.security.enabled: false
